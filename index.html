@@ -16,10 +16,14 @@
     <div id="root">
         <header>
             <img src="img/Spotify_logo.png" alt="logo">
+            <select name="genre-select" id="genre-select" v-model="selected">
+                <option value="All">All</option>
+                <option v-for="genre in genres" :value="genre">{{genre}}</option>
+            </select>
         </header>
         <main>
             <ul id="music-container">
-                <li v-for="album in albums">
+                <li v-for="album in albums" v-if="(album.genre == selected) || (selected == 'All')">
                     <img :src="album.poster" alt="album">
                     <h3>{{album.title}}</h3>
                     <h4>{{album.author}}<br>{{album.year}}</h4>
