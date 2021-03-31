@@ -28,8 +28,7 @@ var app = new Vue({
 
             // ordine per anno: si potrebbe utilizzare il sort ma voglio farlo "artigianalmente"
             for (let k = 0; k < this.albums.length; k++) {
-                var i = 0;
-                while (i < this.albums.length - 1) {
+                for (let i = 0; i < this.albums.length - 1; i++) {
                     if (parseInt(this.albums[i].year) > parseInt(this.albums[i + 1].year)) {
                         // scambio di posizione in modo che il più grande venga dopo
                         let bigger = this.albums[i];
@@ -37,8 +36,7 @@ var app = new Vue({
                         this.albums[i] = smaller;
                         this.albums[i + 1] = bigger;
                     }
-                    // successivamente aumento l'indice, per continuare a confrontare il bigger finchè il più grande di tutti non è in fondo; tutta questa operazione va fatta tante volte quanti sono gli elementi dell'array albums, così ognuno degli elementi ha l'opportunità di essere messo per ultimo se è il più grande (per questo il for)
-                    i++;
+                    // successivamente aumenta l'indice, per continuare a confrontare il bigger finchè il più grande di tutti non è in fondo; tutta questa operazione va fatta tante volte quanti sono gli elementi dell'array albums, così ognuno degli elementi ha l'opportunità di essere messo per ultimo se è il più grande (per questo il for)
                 };
             };
         });
