@@ -3,10 +3,19 @@ var app = new Vue({
     data: {
         albums: [],
         genres: [],
-        selected: 'All'
+        selected: 'All',
+        seen: -1
     },
     methods: {
-
+        // seen conterrà l'indice dell'album selezionato, oppure -1 se non è selezionato nessuno 
+        albumDetails: function(itemIndex) {
+            if (this.seen == -1) {
+                this.seen = itemIndex;
+            }
+            else {
+                this.seen = -1;
+            }
+        }
     },
     mounted() {
 

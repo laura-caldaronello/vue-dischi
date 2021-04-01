@@ -1,3 +1,4 @@
+/* classi preliminari */
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +7,9 @@
 body {
     font-family: 'Roboto', sans-serif;
 }
+/* /classi preliminari */
 
+/* altro */
 #root {
     height: 100vh;
     width: 100vw;
@@ -14,17 +17,23 @@ body {
 }
 
 header {
+    position: relative;
     height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: rgb(46 58 70);
 }
 header img {
+    position: absolute;
+    left: 10px;
     height: calc(80px - 5px - 5px);
-    margin-left: 10px;
-    margin-top: 5px;
-    vertical-align: middle;
 }
-header #genre {
-    margin-left: 10px;
+header #genre-select {
+    padding: 5px;
+    background-color: rgb(46 58 70);
+    color: white;
+    border-color: white;
 }
 
 main #music-container {
@@ -41,12 +50,20 @@ main #music-container li {
     margin: 10px;
     height: 310px;
     width: calc((100% - (10px * 14)) / 7);
+    min-width: 150px;
     background-color: rgb(46 58 70);
     text-align: center;
+    transform: scale(1);
+    transition: transform 0.5s;
+}
+main #music-container li:not(.big):not(.details):hover {
+    transform: scale(1.2);
+    transition: transform 0.5s;
 }
 main #music-container img {
     width: calc(100% - 15px - 15px);
     margin: 15px 15px 0 15px;
+    cursor: pointer;
 }
 main #music-container h3 {
     margin: 10px;
@@ -57,3 +74,19 @@ main #music-container h4 {
     margin: 10px;
     color: gray;
 }
+
+main #music-container li.big,
+main #music-container li.details {
+    height: 600px;
+    width: 400px;
+    margin: 10px;
+    padding: 20px;
+    transition: 0s;
+}
+main #music-container li.big h3,
+main #music-container li.big h4 {
+    font-size: 1.5em;
+    margin-top: 30px;
+}
+
+/* /altro */
